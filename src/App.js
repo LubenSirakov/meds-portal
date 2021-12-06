@@ -10,7 +10,7 @@ import MedDetails from './components/MedDetails/MedDetails.js';
 import MyProfile from './components/MyProfile/MyProfile.js';
 
 import './App.css';
-import { QuerySnapshot } from '@firebase/firestore';
+// import { QuerySnapshot } from '@firebase/firestore';
 
 function App() {
   const [meds, setMeds] = useState([]);
@@ -18,39 +18,31 @@ function App() {
   const ref = firebase.firestore().collection('meds');
   console.log(ref);
 
-  // function getMeds() {
-  //   ref.onSnapshot((querySnapshot) => {
-  //     const items = [];
-  //     querySnapshot.forEach((doc) => {
-  //       items.push(doc.data());
-  //     });
-  //     setMeds(items);
-  //   })
-  // }
-
-  function getMeds2() {
-    ref.get().then((item) => {
-      const items = item.docs.map((doc) => doc.data());
+  function getMeds() {
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
       setMeds(items);
     })
   }
 
   useEffect(() => {
-    //  getMeds();
-    getMeds2();
+     getMeds();
   }, [])
 
   return (
     <div className="App">
-      <h2>meds</h2>
+      {/* <h2>meds</h2>
       {meds.map(x => (
         <div key={x.id}>
 
           <h2>{x.name}</h2>
           <p>{x.description}</p>
         </div>
-      ))}
-      {/* <Navigation />
+      ))} */}
+      <Navigation />
       <WelcomeHeder />
       <div className="latest-meds-wrapper">
         <LatestMeds />
@@ -58,7 +50,7 @@ function App() {
       <MyProfile />
       <Register />
       <Login />
-      <MedDetails /> */}
+      <MedDetails />
     </div>
   );
 }
