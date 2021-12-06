@@ -26,12 +26,12 @@ function LatestMeds() {
     }, [])
 
     return (
-        <>
+        <div className="latest-meds-wrapper">
             <h3>Latest medicines added to our list</h3>
             <div class="cards">
               {meds.map(x => <MedCard med={x} />)  }
             </div>
-        </>
+      </div>
     );
 }
 

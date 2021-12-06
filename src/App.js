@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import firebase from './firebase.js';
+import { Routes, Route } from 'react-router-dom'
 
 import Navigation from './components/Navigation/Navigation.js';
 import WelcomeHeder from './components/WelcomeHeader/WelcomeHeader.js';
@@ -13,17 +14,16 @@ import Footer from './components/Footer/Footer.js';
 import './App.css';
 
 function App() {
-   return (
+  return (
     <div className="App">
       <Navigation />
-      <WelcomeHeder />
-      <div className="latest-meds-wrapper">
-        <LatestMeds />
-      </div>
-      <MyProfile />
-      <Register />
-      <Login />
-      <MedDetails />
+      <Routes>
+        <Route path="/" element={<WelcomeHeder />} />
+        <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        {/* <MedDetails /> */}
+      </Routes>
       <Footer />
     </div>
   );

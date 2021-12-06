@@ -1,4 +1,5 @@
 import './Navigation.css';
+import { Link } from 'react-router-dom';
 
 function Navigation() {
     return (
@@ -8,35 +9,18 @@ function Navigation() {
 
                     <div className="logo">
 
-                        <a href="#home"><i className="fas fa-chess-knight"></i>Meds Portal</a>
+                        <Link to="/"><i className="fas fa-chess-knight"></i>Meds Portal</Link>
                     </div>
 
 
                     <ul id="menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Register</a></li>
-                        <li><a href="#services">Login</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/my-profile">My Profile</Link></li>
+                        <li><Link to="/register">Register</Link></li>
+                        <li><Link to="/login">Login</Link></li>
                     </ul>
                 </div>
             </nav>
-
-
-
-            <div className="menuIcon">
-                <span className="icon icon-bars"></span>
-                <span className="icon icon-bars overlay"></span>
-            </div>
-
-
-            {/* <div className="overlay-menu">
-                <ul id="menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div> */}
         </>
     );
 }
