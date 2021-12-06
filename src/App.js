@@ -8,40 +8,13 @@ import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
 import MedDetails from './components/MedDetails/MedDetails.js';
 import MyProfile from './components/MyProfile/MyProfile.js';
+import Footer from './components/Footer/Footer.js';
 
 import './App.css';
-// import { QuerySnapshot } from '@firebase/firestore';
 
 function App() {
-  const [meds, setMeds] = useState([]);
-
-  const ref = firebase.firestore().collection('meds');
-  console.log(ref);
-
-  function getMeds() {
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
-      });
-      setMeds(items);
-    })
-  }
-
-  useEffect(() => {
-     getMeds();
-  }, [])
-
-  return (
+   return (
     <div className="App">
-      {/* <h2>meds</h2>
-      {meds.map(x => (
-        <div key={x.id}>
-
-          <h2>{x.name}</h2>
-          <p>{x.description}</p>
-        </div>
-      ))} */}
       <Navigation />
       <WelcomeHeder />
       <div className="latest-meds-wrapper">
@@ -51,6 +24,7 @@ function App() {
       <Register />
       <Login />
       <MedDetails />
+      <Footer />
     </div>
   );
 }
