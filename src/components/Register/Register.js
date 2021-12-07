@@ -1,6 +1,7 @@
 import './Register.css';
 
 function Register() {
+        
     return (
         <form className="register">
             <h2>Register</h2>

@@ -32,7 +32,7 @@
     width: 30em;
   }
   
-  .cards {
+  /* .cards {
     margin-top: 1rem;
     margin-left: 5rem;
     margin-right: 5rem;
@@ -40,12 +40,13 @@
     display: flex;
     align-items: flex-start;
       justify-content: center;
-  }
+  } */
   
   .card {
     background: #74C69D;
     width: 24em;
     border-radius: 0.3em;
+    min-height: 500px;
     margin: 1em;
     overflow: hidden;
     box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);

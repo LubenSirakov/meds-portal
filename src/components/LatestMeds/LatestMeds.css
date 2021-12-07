@@ -8,6 +8,12 @@
     width: auto;
 }
 
-.card {
-    margin-right: 20px;
+.cards {
+    /* margin-right: 20px; */
+    margin-top: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 10rem;
+    display: flex;
+    justify-content: flex-center;
 }
