@@ -8,22 +8,22 @@ import './LatestMeds.css';
 function LatestMeds() {
     const [meds, setMeds] = useState([]);
 
-    const ref = firebase.firestore().collection('meds');
-    console.log(ref);
+    // const ref = firebase.firestore().collection('meds');
+    // console.log(ref);
 
-    function getMeds() {
-        ref.onSnapshot((querySnapshot) => {
-            const items = [];
-            querySnapshot.forEach((doc) => {
-                items.push(doc.data());
-            });
-            setMeds(items);
-        })
-    }
+    // function getMeds() {
+    //     ref.onSnapshot((querySnapshot) => {
+    //         const items = [];
+    //         querySnapshot.forEach((doc) => {
+    //             items.push(doc.data());
+    //         });
+    //         setMeds(items);
+    //     })
+    // }
 
-    useEffect(() => {
-        getMeds();
-    }, [])
+    // useEffect(() => {
+    //     getMeds();
+    // }, [])
 
     return (
         <div className="latest-meds-wrapper">

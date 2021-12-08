@@ -8,6 +8,7 @@ import LatestMeds from './components/LatestMeds/LatestMeds.js';
 import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
 import MedDetails from './components/MedDetails/MedDetails.js';
+import DateCheck from './components/DateCheck/DateCheck.js';
 import MyProfile from './components/MyProfile/MyProfile.js';
 import Footer from './components/Footer/Footer.js';
 
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomeHeder />} />
         <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/my-meds" element={<DateCheck />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         {/* <MedDetails /> */}

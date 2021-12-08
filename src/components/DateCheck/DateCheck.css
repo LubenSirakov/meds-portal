@@ -1,0 +1,9 @@
+.date-check-wrapper {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 30rem;
+    padding: 1rem;
+    background: #B7E4C7;
+    box-shadow: 0 0 5px 0 #bbb;
+    border-radius: 2%;
+}

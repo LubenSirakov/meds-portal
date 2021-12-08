@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './MyProfile.css';
 
 function MyProfile() {
@@ -12,7 +13,7 @@ function MyProfile() {
                     <div className="btn-wrapper">
                         <button type="button" className="btn">My Meds</button>
                         <button type="button" className="btn">Edit</button>
-                        <button type="button" className="btn">Logout</button>
+                        <button type="button" className="btn"><Link to='/my-meds'>My Meds</Link></button>
                     </div>
                 </div>
             </div>
