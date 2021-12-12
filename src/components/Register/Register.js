@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase.js';
+import { useNavigate } from 'react-router-dom';
 
 import './Register.css';
 
 function Register() {
+    const navigate = useNavigate();
+
     const [input, setInput] = useState({
         email: '',
         password: '',
@@ -23,15 +26,16 @@ function Register() {
 
     const register = async (e) => {
         e.preventDefault();
-        
+
         try {
             const user = await createUserWithEmailAndPassword(auth, input.email, input.password);
             console.log(user);
+            console.log('registered');
+            navigate('/');
         } catch (error) {
             console.log(error.message);
         }
     }
-
 
     return (
         <form className="register">

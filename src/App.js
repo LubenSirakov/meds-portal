@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './contexts/AuthContext.js';
 
 import Navigation from './components/Navigation/Navigation.js';
 import WelcomeHeder from './components/WelcomeHeader/WelcomeHeader.js';
@@ -17,19 +18,21 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<WelcomeHeder />} />
-        <Route path="/my-profile" element={<MyProfile />} />
-        <Route path="/my-meds" element={<DateCheck />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/create" element={<Create />} />
-        {/* <MedDetails /> */}
-      </Routes>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<WelcomeHeder />} />
+          <Route path="/my-profile" element={<MyProfile />} />
+          <Route path="/my-meds" element={<DateCheck />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/create" element={<Create />} />
+          {/* <MedDetails /> */}
+        </Routes>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 }
 
