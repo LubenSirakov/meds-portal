@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import firebase from './firebase.js';
+
 import { Routes, Route } from 'react-router-dom'
 
 import Navigation from './components/Navigation/Navigation.js';
@@ -7,6 +7,7 @@ import WelcomeHeder from './components/WelcomeHeader/WelcomeHeader.js';
 import LatestMeds from './components/LatestMeds/LatestMeds.js';
 import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
+import Create from './components/Create/Create.js';
 import MedDetails from './components/MedDetails/MedDetails.js';
 import DateCheck from './components/DateCheck/DateCheck.js';
 import MyProfile from './components/MyProfile/MyProfile.js';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/my-meds" element={<DateCheck />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/create" element={<Create />} />
         {/* <MedDetails /> */}
       </Routes>
       <Footer />
