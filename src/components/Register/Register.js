@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase.js';
 import { useNavigate } from 'react-router-dom';
 
 import './Register.css';
 
-function Register() {
+import { auth } from '../../firebase.js';
+import { register } from '../../services/authService.js';
+
+const Register = () => {
     const navigate = useNavigate();
 
     const [input, setInput] = useState({
@@ -22,20 +23,15 @@ function Register() {
                 [name]: value
             }
         })
-    }
+    };
 
-    const register = async (e) => {
+    const onRegisterClick = (e) => {
         e.preventDefault();
 
-        try {
-            const user = await createUserWithEmailAndPassword(auth, input.email, input.password);
-            console.log(user);
-            console.log('registered');
-            navigate('/');
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
+        register(auth, input.email, input.password);
+        
+        navigate('/');
+    };
 
     return (
         <form className="register">
@@ -48,7 +44,7 @@ function Register() {
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input onChange={handleChange} type="password" name="password" value={input.password} className="form-control" id="exampleInputPassword1" />
             </div>
-            <button onClick={register} type="submit" className="btn btn-primary">Submit</button>
+            <button onClick={onRegisterClick} type="submit" className="btn btn-primary">Submit</button>
         </form>
     );
 }

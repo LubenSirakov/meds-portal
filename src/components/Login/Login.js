@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase.js';
 import { useNavigate } from 'react-router-dom';
 
 import './Login.css';
+
+import { auth } from '../../firebase.js';
+import { login } from '../../services/authService.js';
 
 function Login() {
     const navigate = useNavigate();
@@ -24,17 +25,12 @@ function Login() {
         })
     }
 
-    const login = async (e) => {
+    const onLoginClick = async (e) => {
         e.preventDefault();
 
-        try {
-            const user = await signInWithEmailAndPassword(auth, input.email, input.password);
-            console.log(user);
-            console.log('logged');
-            navigate('/');
-        } catch (error) {
-            console.log(error.message);
-        }
+        login(auth, input.email, input.password);
+    
+        navigate('/');        
     }
 
     return (
@@ -48,7 +44,7 @@ function Login() {
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input onChange={handleChange} type="password" name="password" value={input.password} className="form-control" id="exampleInputPassword1" />
             </div>
-            <button onClick={login} type="submit" className="btn btn-primary">Submit</button>
+            <button onClick={onLoginClick} type="submit" className="btn btn-primary">Submit</button>
         </form>
     );
 }

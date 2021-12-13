@@ -1,15 +1,15 @@
-import './Navigation.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase.js';
-import { signOut } from 'firebase/auth';
+
+import './Navigation.css';
+
+import { logout } from '../../services/authService.js';
 
 function Navigation({
     user
 }) {
     const navigate = useNavigate();
-    console.log(user?.email);
-    const logout = async () => {
-        await signOut(auth)
+    const onLogoutClick = async (auth) => {
+        logout(auth);
         navigate('/');
     }
 
@@ -27,7 +27,7 @@ function Navigation({
             <>
                 <li><Link to="/create">Create</Link></li>
                 <li><Link to="/my-profile">My Profile</Link></li>
-                <button onClick={logout} >Logout</button>
+                <button onClick={onLogoutClick} >Logout</button>
             </>
         );
     };
@@ -44,7 +44,7 @@ function Navigation({
 
                     <ul id="menu">
                         <li><Link to="/">Home</Link></li>
-                        {user == undefined || user?.email
+                        {user === undefined || user?.email
                             ? <GuestUser />
                             : <LoggedUser />
                         }
