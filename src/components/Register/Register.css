@@ -1,15 +1,16 @@
-Register {
-    padding: 1rem;
-}
-
 .register {
-    max-width: 400px;
+    /* max-width: 400px;
     margin: auto;
     margin-top: 10rem;
-    padding: 1.5rem;
-    background: #B7E4C7;
+    padding: 1.5rem; */
+    position: relative;
+    width: 450px;
+    height: auto;
+    padding: 40px;
+    box-sizing: border-box;
+    background-position: top;
     box-shadow: 0 0 5px 0 #bbb;
-    border-radius: 2%;
+    /* border-radius: 2%; */
 }
 
 .register:hover {
@@ -26,9 +27,9 @@ h2 {
 }
 
 form {
-    display: flexbox;
+    display: grid;
     padding: 1rem ;
-    background: #B7E4C7;
+    /* background: #B7E4C7; */
     width: 450px;
     border-radius: 3px;
     margin: 380px;
@@ -50,7 +51,7 @@ input[type="password"] {
 }
 
 .button {
-    background: #74C69D;
+    /* background: #74C69D; */
     padding:5px 25px;
     border:none;
     font-size:22px;
