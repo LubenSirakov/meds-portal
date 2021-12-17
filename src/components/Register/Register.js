@@ -2,11 +2,21 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './Register.css';
-
+import { setPersistence, browserSessionPersistence, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase.js';
 import { register } from '../../services/authService.js';
 
-const Register = () => {
+const Register = ({
+    ...email
+}) => {
+    // setPersistence(auth, browserSessionPersistence)
+    // const [user, setUser] = useState({});
+
+    // onAuthStateChanged(auth, (currentUser) => {
+    //     setUser(currentUser)
+    // });
+
+    // console.log(user.email);
     const navigate = useNavigate();
 
     const [input, setInput] = useState({
@@ -28,9 +38,14 @@ const Register = () => {
     const onRegisterClick = (e) => {
         e.preventDefault();
 
-        register(auth, input.email, input.password);
-        
-        navigate('/');
+        try {
+            register(auth, input.email, input.password);
+            
+            navigate('/');
+        }catch(error) {
+            alert(error);
+        }
+
     };
 
     return (

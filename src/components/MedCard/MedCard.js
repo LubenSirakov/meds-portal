@@ -1,11 +1,9 @@
 import './MedCard.css';
 
-function MedCard({
-    med
-}) {
+function MedCard({ med }) {
 
     return (
-            <div className="card">
+        <div className="card">
             <img src={med.imgUrl} alt={med.name} />
             <div className="card-body">
                 <h2>{med.name}</h2>

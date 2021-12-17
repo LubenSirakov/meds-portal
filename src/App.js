@@ -20,7 +20,7 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Navigation />
+        <Navigation authProvider={AuthProvider}/>
         <Routes>
           <Route path="/" element={<WelcomeHeder />} />
           <Route path="/my-profile" element={<MyProfile />} />

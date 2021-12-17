@@ -1,16 +1,21 @@
-.register {
-    /* max-width: 400px;
+/* .register {
+    max-width: 400px;
     margin: auto;
     margin-top: 10rem;
-    padding: 1.5rem; */
-    position: relative;
-    width: 450px;
-    height: auto;
-    padding: 40px;
-    box-sizing: border-box;
-    background-position: top;
+    padding: 1.5rem;
+    align-items: center;
+    background: #B7E4C7;
     box-shadow: 0 0 5px 0 #bbb;
-    /* border-radius: 2%; */
+    border-radius: 2%;
+} */
+.register{
+    display: d-flex;
+    justify-content: flex-center;
+    align-items: center;
+    min-height: 50vh;
+    background: #B7E4C7;
+    box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
+    transition: all ease 200ms;
 }
 
 .register:hover {
@@ -18,25 +23,28 @@
     box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
 }
 
-h2 {
+#registerTitle {
     line-height: 1.4;
     font-size: 1.9em;
     font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Lato, Helvetica, Arial, sans-serif;
     transition: all ease-in 100ms;
 }
 
-form {
-    display: grid;
+/* form {
+    display: d-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
     padding: 1rem ;
-    /* background: #B7E4C7; */
+    background: #B7E4C7;
     width: 450px;
     border-radius: 3px;
     margin: 380px;
     overflow: hidden;
     box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
     transition: all ease 200ms;
-}
+} */
 
 input[type="email"] {
     text-align: center;
@@ -50,8 +58,8 @@ input[type="password"] {
     display: block;
 }
 
-.button {
-    /* background: #74C69D; */
+#submitButton {
+    background: #74C69D;
     padding:5px 25px;
     border:none;
     font-size:22px;

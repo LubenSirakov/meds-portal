@@ -1,15 +1,32 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 import './Navigation.css';
 
+import { auth } from '../../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 import { logout } from '../../services/authService.js';
 
-function Navigation({
-    user
-}) {
+function Navigation() {
+    // const [user, setUser] = useState({});
+
+    // onAuthStateChanged(auth, (currentUser) => {
+    //     setUser(currentUser)
+    // });
+    const [user, setUser] = useState({});
+    // const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            // setLoading(false);
+        });
+        return unsubscribe;
+    }, [])
+    console.log(user?.uid);
     const navigate = useNavigate();
-    const onLogoutClick = async (auth) => {
-        logout(auth);
+    const onLogoutClick = async () => {
+        logout();
         navigate('/');
     }
 
@@ -25,12 +42,14 @@ function Navigation({
     const LoggedUser = () => {
         return (
             <>
+                <li>Welcome {user.email}</li>
                 <li><Link to="/create">Create</Link></li>
                 <li><Link to="/my-profile">My Profile</Link></li>
                 <button onClick={onLogoutClick} >Logout</button>
             </>
         );
     };
+
     return (
         <>
             <nav id="navbar" className="">
@@ -44,11 +63,11 @@ function Navigation({
 
                     <ul id="menu">
                         <li><Link to="/">Home</Link></li>
-                        {user === undefined || user?.email
-                            ? <GuestUser />
+                        {!user
+                            ? < GuestUser />
                             : <LoggedUser />
                         }
-                    
+
                     </ul>
                 </div>
             </nav>

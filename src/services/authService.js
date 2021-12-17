@@ -1,15 +1,13 @@
 import { useState } from 'react';
+import { auth } from '../firebase';
+import { setPersistence, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, browserLocalPersistence, browserSessionPersistence } from 'firebase/auth';
 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+setPersistence(auth, browserSessionPersistence)
 
 export const register = async (auth, email, password) => {
     try {
         const user = await createUserWithEmailAndPassword(auth, email, password);
-        localStorage.set('user', user)
-        console.log(user);
-        localStorage.setItem('email', email);
-        localStorage.setItem('password'. password);
-        console.log('registered');
+        return user;
     } catch (error) {
         console.log(error.message);
     }
@@ -18,17 +16,13 @@ export const register = async (auth, email, password) => {
 export const login = async (auth, email, password) => {
     try {
         const user = await signInWithEmailAndPassword(auth, email, password);
-        console.log(user);
-        localStorage.getItem('email');
-        localStorage.getItem('password');
-        console.log('logged');
+        return user;
     } catch (error) {
         console.log(error.message);
     }
 };
 
-export const logout = async (auth) => {
-    await signOut(auth);
-    localStorage.removeItem('email');
-    localStorage.removeItem('password');
+export const logout = async () => {
+    await signOut();
+
 }

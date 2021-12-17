@@ -1,8 +1,6 @@
-.latest-meds-wrapper{
-}
-
-.App {
-    height: 100%;
+#root {
+display: flex;
+height: 100%;
 background-color: #D8F3DC;
 background-size: auto 100%;
 }

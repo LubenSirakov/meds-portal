@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { onAuthStateChanged } from 'firebase/auth';
 import { create } from '../../services/medsService.js';
+import { auth } from '../../firebase';
 
 function Create() {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return unsubscribe;
+    }, [])
     const navigate = useNavigate();
 
     const [input, setInput] = useState({
         name: '',
         description: '',
-        imageUrl: ''
+        imgUrl: ''
     });
 
     function handleChange(e) {
@@ -30,7 +40,8 @@ function Create() {
         const newMed = {
             name: input.name,
             description: input.description,
-            imageUrl: input.imageUrl
+            imgUrl: input.imgUrl,
+            owner: user.uid
         }
 
         create(newMed);
@@ -51,7 +62,7 @@ function Create() {
             </div>
             <div className="mb-3">
                 <label htmlFor="medImage" className="form-label">Image</label>
-                <input onChange={handleChange} type="text" name="imageUrl" value={input.imageUrl} className="form-control" id="medImage" aria-describedby="nameHelp" />
+                <input onChange={handleChange} type="text" name="imgUrl" value={input.imgUrl} className="form-control" id="medImage" aria-describedby="nameHelp" />
             </div>
 
             <button onClick={handleClick} type="submit" className="btn btn-primary">Submit</button>
