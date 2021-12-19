@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { create } from '../../services/medsService.js';
 import { auth } from '../../firebase';
+import uniqid from 'uniqid';
 
 function Create() {
     const [user, setUser] = useState({});
@@ -41,7 +42,8 @@ function Create() {
             name: input.name,
             description: input.description,
             imgUrl: input.imgUrl,
-            owner: user.uid
+            owner: user.uid,
+            medId: uniqid()
         }
 
         create(newMed);

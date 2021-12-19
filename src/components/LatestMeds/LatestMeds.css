@@ -1,12 +1,22 @@
 .latest-meds {
     background-color: transparent;
     background-size: auto 100%;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
     overflow: hidden;
     border-radius: 10px;
     padding: 200px;
     height: auto;
-    width: auto;
+    /* width: auto; */
+}
+
+.latest-meds-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 400px auto;
+    max-width: 960px;
+    text-align: center;
 }
 
 .cards {
