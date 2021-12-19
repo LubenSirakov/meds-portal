@@ -15,7 +15,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin: 400px auto;
-    max-width: 960px;
+    max-width: 960px auto;
     text-align: center;
 }
 
@@ -27,4 +27,12 @@
     margin-bottom: 10rem;
     display: flex;
     justify-content: flex-center;
+}
+
+.header-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-center;
+    text-align: center;
+    max-height: 50px;
 }

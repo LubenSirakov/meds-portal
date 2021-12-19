@@ -24,10 +24,26 @@ export const getAll = async () => {
 }
 
 //GET ONE MED
-export const getOne = (id) => fetch(`${baseUrl}/meds/${id}.json`).then(res => res.json());
+// export const getOne = (id) => fetch(`${baseUrl}/meds/${id}.json`).then(res => res.json());
+export const getOne = async (medId) => {
+  try {
+    let snapshot = await get(child(dbRef, `meds/${medId}`))
+    if (snapshot.exists()) {
+      let res = snapshot.val();
+      console.log(res);
+      return res;
+    } else {
+      console.log('No data avaliable');
+
+    }
+  } catch (error) {
+    console.log(error);
+
+  }
+}
 
 //CREATE NEW MED
-export const create = ({name, description, imgUrl, owner, medId}) => {
+export const create = ({ name, description, imgUrl, owner, medId }) => {
   set(ref(db, 'meds/' + medId), {
     name,
     description,

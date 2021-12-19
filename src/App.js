@@ -20,7 +20,7 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Navigation authProvider={AuthProvider}/>
+        <Navigation authProvider={AuthProvider} />
         <Routes>
           <Route path="/" element={<WelcomeHeder />} />
           <Route path="/my-profile" element={<MyProfile />} />
@@ -28,7 +28,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<Create />} />
-          {/* <MedDetails /> */}
+          <Route path="/meds/:medId" element={<MedDetails />} />
         </Routes>
         <Footer />
       </div>

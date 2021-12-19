@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './MedCard.css';
 
 function MedCard({ med }) {
-    // console.log(med);
+
     return (
         <div className="card">
             <img src={med.imgUrl} alt={med.name} />

@@ -19,7 +19,7 @@ function LatestMeds() {
 
   return (
     <div className="latest-meds-wrapper">
-      <h3>Latest medicines added to our list</h3>
+      <h3 id="header-title">Latest medicines added to our list</h3>
       <div className="cards">
         {meds.map(x => <MedCard key={x.medId} med={x} />)}
       </div>
