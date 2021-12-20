@@ -1,38 +1,26 @@
-.latest-meds {
-    background-color: transparent;
-    background-size: auto 100%;
+.latest-wrapper {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    overflow: hidden;
-    border-radius: 10px;
-    padding: 200px;
-    height: auto;
-    /* width: auto; */
+    justify-content: center;
 }
 
-.latest-meds-wrapper{
-    display: flex;
-    flex-direction: row;
+.cards-wrapper {
+    display: inline-flex;
+    flex-direction: row-reverse; /*might need reverse? */
     flex-wrap: wrap;
-    margin: 400px auto;
-    max-width: 960px auto;
-    text-align: center;
+    justify-content: center;
+    margin-bottom: 5%;
 }
 
-.cards {
-    /* margin-right: 20px; */
-    margin-top: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-bottom: 10rem;
-    display: flex;
-    justify-content: flex-center;
+.card {
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
-.header-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-center;
-    text-align: center;
-    max-height: 50px;
+#header-title {
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    display: inline-block;
 }

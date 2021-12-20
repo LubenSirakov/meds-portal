@@ -1,6 +1,26 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 #root {
-display: flex;
+/* display: flex; */
+/* flex-direction: row; might need reverse? */
+/* flex-wrap: wrap; */
+/* justify-content: center; */
+/* align-content: stretch; */
+/* margin: 0; */
 height: 100%;
 background-color: #D8F3DC;
-background-size: auto 100%;
+/* background-size: auto 100%; */
+}
+
+.App {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+
+margin: auto;
 }

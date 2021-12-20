@@ -1,6 +1,8 @@
 function WelcomeTitle() {
-    return(
-        <h2 className="welcome-title" >Welcome to Meds Portal!</h2>
+    return (
+        <div className="welcome-title">
+            <h2>Welcome to Meds Portal!</h2>
+        </div>
     );
 }
 

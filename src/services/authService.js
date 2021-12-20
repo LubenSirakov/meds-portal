@@ -22,7 +22,12 @@ export const login = async (auth, email, password) => {
     }
 };
 
-export const logout = async () => {
-    await signOut();
+export const logout = async (auth) => {
+    try {
+        await signOut(auth);
+
+    } catch (error) {
+        console.log(error);
+    }
 
 }

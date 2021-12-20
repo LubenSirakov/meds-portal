@@ -18,12 +18,16 @@ function LatestMeds() {
   }, [])
 
   return (
-    <div className="latest-meds-wrapper">
-      <h3 id="header-title">Latest medicines added to our list</h3>
-      <div className="cards">
+    <div className="latest-wrapper">
+
+
+      <h3 id="header-title">Latest medicines added to our list...</h3>
+      <div className="cards-wrapper">
         {meds.map(x => <MedCard key={x.medId} med={x} />)}
       </div>
+      
     </div>
+
   );
 }
 

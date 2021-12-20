@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import './Login.css';
 
@@ -45,6 +45,7 @@ function Login() {
                 <input onChange={handleChange} type="password" name="password" value={input.password} className="form-control" id="exampleInputPassword1" />
             </div>
             <button onClick={onLoginClick} type="submit" className="btn btn-primary">Submit</button>
+            <p>New here? <Link to="/register">Register</Link></p>
         </form>
     );
 }

@@ -1,9 +1,7 @@
-import { getDatabase, ref, child, get, set, onValue, DataSnapshot } from 'firebase/database';
+import { getDatabase, ref, child, get, set, onValue, DataSnapshot, limitToFirst, remove, update } from 'firebase/database';
 
 const db = getDatabase();
 const dbRef = ref(getDatabase());
-
-const baseUrl = 'https://meds-portal-69e7a-default-rtdb.europe-west1.firebasedatabase.app/';
 
 //GET ALL MEDS
 export const getAll = async () => {
@@ -24,13 +22,12 @@ export const getAll = async () => {
 }
 
 //GET ONE MED
-// export const getOne = (id) => fetch(`${baseUrl}/meds/${id}.json`).then(res => res.json());
 export const getOne = async (medId) => {
   try {
     let snapshot = await get(child(dbRef, `meds/${medId}`))
     if (snapshot.exists()) {
       let res = snapshot.val();
-      console.log(res);
+      // console.log(res);
       return res;
     } else {
       console.log('No data avaliable');
@@ -43,26 +40,42 @@ export const getOne = async (medId) => {
 }
 
 //CREATE NEW MED
-export const create = ({ name, description, imgUrl, owner, medId }) => {
-  set(ref(db, 'meds/' + medId), {
-    name,
-    description,
-    imgUrl,
-    owner,
-    medId
-  });
+export const create = ({ name, description, count, imgUrl, owner, medId }) => {
+  try {
+    set(ref(db, 'meds/' + medId), {
+      name,
+      description,
+      count,
+      imgUrl,
+      owner,
+      medId
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-// export const create = async (medData) => {
-//   let response = await fetch(`${baseUrl}/meds.json`, {
-//     method: 'POST',
-//     headers: {
-//       'content-type': 'application/json',
-//     },
-//     body: JSON.stringify({ ...medData })
-//   });
+//EDIT MED
+export const edit = ({ name, description, count, imgUrl, owner, medId }) => {
+  try {
+    update(ref(db, `meds/${medId}`), {
+      name,
+      description,
+      count,
+      imgUrl,
+      owner,
+      medId
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-//   let result = await response.json();
-
-//   return result;
-// }
+//DELETE MED
+export const deleteMed = (medId) => {
+  try {
+    remove(child(dbRef, `meds/${medId}`), null);
+  } catch (error) {
+    console.log(error);
+  }
+}

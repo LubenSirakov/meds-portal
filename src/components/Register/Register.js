@@ -1,22 +1,14 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import './Register.css';
+import { Form, Button } from 'react-bootstrap';
+
 import { setPersistence, browserSessionPersistence, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase.js';
 import { register } from '../../services/authService.js';
 
-const Register = ({
-    ...email
-}) => {
-    // setPersistence(auth, browserSessionPersistence)
-    // const [user, setUser] = useState({});
-
-    // onAuthStateChanged(auth, (currentUser) => {
-    //     setUser(currentUser)
-    // });
-
-    // console.log(user.email);
+const Register = () => {
     const navigate = useNavigate();
 
     const [input, setInput] = useState({
@@ -40,27 +32,31 @@ const Register = ({
 
         try {
             register(auth, input.email, input.password);
-            
+
             navigate('/');
-        }catch(error) {
+        } catch (error) {
             alert(error);
         }
 
     };
 
     return (
-        <form className="register">
-            <h2>Register</h2>
-            <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input onChange={handleChange} type="email" name="email" value={input.email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input onChange={handleChange} type="password" name="password" value={input.password} className="form-control" id="exampleInputPassword1" />
-            </div>
-            <button onClick={onRegisterClick} type="submit" className="btn btn-primary">Submit</button>
-        </form>
+        <div className="form-wrapper">
+
+            <form className="register">
+                <h2>Register</h2>
+                <div className="mb-3">
+                    <label htmlFor="exampleInputEmail" className="form-label">Email address</label>
+                    <input onChange={handleChange} type="email" name="email" value={input.email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                    <input onChange={handleChange} type="password" name="password" value={input.password} className="form-control" id="exampleInputPassword1" />
+                </div>
+                <button onClick={onRegisterClick} type="submit" className="btn btn-primary">Submit</button>
+                <p>Already have an account? <Link to="/login">Login</Link></p>
+            </form>
+        </div>
     );
 }
 

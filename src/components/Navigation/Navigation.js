@@ -4,30 +4,29 @@ import { useState, useEffect } from 'react';
 import './Navigation.css';
 
 import { auth } from '../../firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { logout } from '../../services/authService.js';
 
 function Navigation() {
-    // const [user, setUser] = useState({});
-
-    // onAuthStateChanged(auth, (currentUser) => {
-    //     setUser(currentUser)
-    // });
+    
     const [user, setUser] = useState({});
-    // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            // setLoading(false);
         });
         return unsubscribe;
     }, [])
     console.log(user?.uid);
     const navigate = useNavigate();
-    const onLogoutClick = async () => {
-        logout();
-        navigate('/');
+
+    const onLogoutClick = () => {
+        try {
+            signOut(auth);
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const GuestUser = () => {

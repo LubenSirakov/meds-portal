@@ -1,22 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { onAuthStateChanged } from 'firebase/auth';
-import { create } from '../../services/medsService.js';
+import * as medsService from '../../services/medsService.js';
 import { auth } from '../../firebase';
-import uniqid from 'uniqid';
 
-import './Create.css';
+import './Edit.css';
 
-function Create() {
+function Edit() {
     const [user, setUser] = useState({});
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-        });
-        return unsubscribe;
-    }, [])
+    const { medId } = useParams();
     const navigate = useNavigate();
 
     const [input, setInput] = useState({
@@ -25,6 +19,21 @@ function Create() {
         count: '',
         imgUrl: ''
     });
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return unsubscribe;
+    }, [])
+
+    useEffect(() => {
+        medsService.getOne(medId)
+            .then(res => {
+                setInput(res);
+            })
+    }, []);
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -39,25 +48,24 @@ function Create() {
 
     function handleClick(e) {
         e.preventDefault();
-        console.log(input);
 
-        const newMed = {
+        const editedMed = {
             name: input.name,
             description: input.description,
             count: input.count,
             imgUrl: input.imgUrl,
             owner: user.uid,
-            medId: uniqid()
+            medId: medId
         }
-
-        create(newMed);
+        console.log(editedMed);
+        medsService.edit(editedMed);
         navigate('/');
     }
 
 
     return (
         <form className="create">
-            <h2>Create Med</h2>
+            <h2>Edit Med</h2>
             <div className="mb-3">
                 <label htmlFor="medName" className="form-label">Med Name</label>
                 <input onChange={handleChange} type="text" name="name" value={input.name} className="form-control" id="medName" aria-describedby="nameHelp" />
@@ -80,4 +88,4 @@ function Create() {
     );
 }
 
-export default Create;
+export default Edit;

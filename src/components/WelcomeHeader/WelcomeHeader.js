@@ -1,13 +1,13 @@
 import './WelcomeHeader.css';
 import WelcomeTitle from './WelcomeTitle/WelcomeTitle.js';
-// import welcomeImage from './meds.jpg';
+
 import LatestMeds from '../LatestMeds/LatestMeds.js';
 
 function WelcomeHeder() {
     return (
         <div className="welcome-header">
-            <WelcomeTitle />
-            {/* <img className="welcome-image" src={welcomeImage} /> */}
+            <h2 className="welcome-title">Welcome to Meds Portal!</h2>
+
             <LatestMeds />
         </div>
     );

@@ -92,14 +92,14 @@
   }
 
   .button {
-    background: #1B4332;
+    background: #74C69D;
     padding:5px 25px;
     margin-bottom: 1px;
     border:none;
     font-size:22px;
     border-radius:6px;
     cursor:pointer;
-    color:#1B4332;
+    color: #1B4332;
     font-weight:bold;
     transition:0.3s ease all;
     box-shadow:1px 2px 3px rgba(0,0,0,0.3);    
