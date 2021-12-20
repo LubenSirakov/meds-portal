@@ -17,7 +17,7 @@ function Navigation() {
         });
         return unsubscribe;
     }, [])
-    console.log(user?.uid);
+
     const navigate = useNavigate();
 
     const onLogoutClick = () => {

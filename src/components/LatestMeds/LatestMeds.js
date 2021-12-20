@@ -11,7 +11,6 @@ function LatestMeds() {
   useEffect(() => {
     getAll()
       .then(res => {
-        console.log(res);
         setMeds(res);
       })
 

@@ -14,6 +14,7 @@ import MedDetails from './components/MedDetails/MedDetails.js';
 import DateCheck from './components/DateCheck/DateCheck.js';
 import MyProfile from './components/MyProfile/MyProfile.js';
 import Footer from './components/Footer/Footer.js';
+import MedAddedByUser from './components/MedsAddedByUser/MedsAddedByUser.js';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,6 +34,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/edit/:medId" element={<Edit />} />          
           <Route path="/meds/:medId" element={<MedDetails />} />
+          <Route path="/meds/:owner" element={<MedAddedByUser />} />
         </Routes>
         <Footer />
       </div>
