@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Love+Light&family=Pacifico&display=swap');
 * {
     border: 0;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+
   }
   
   body {
     font-family: Lato, Helvetica, Arial, sans-serif;
     background: #eee;
+    text-decoration: none;
   }
   
   a {
@@ -30,6 +34,7 @@
     line-height: 60px;
     width: 100%;
     z-index: 10;
+    text-decoration: none;
   }
   
   .nav-wrapper {
@@ -37,8 +42,10 @@
     text-align: center;
     width: 70%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: baseline;
+    text-decoration: none;
+
   } @media(max-width: 768px) {
       .nav-wrapper {
         width: 90%;
@@ -54,9 +61,11 @@
     float: left;
     margin-left: -150px;
     font-size: 1.5em;
+    font-family: 'Pacifico', cursive;
     height: 60px;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
   } @media(max-width: 768px) {
       .logo {
         margin-left: 5px;
@@ -67,7 +76,8 @@
     display: inline-block;
     float: right;
     list-style: none;
-    /* margin-right: 14px; */
+    margin-right: 14px;
+    text-decoration: none;
     margin-top: -2px;
     text-align: right;
     transition: transform 0.5s ease-out;

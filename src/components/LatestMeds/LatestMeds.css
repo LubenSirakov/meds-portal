@@ -3,6 +3,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #D8F3DC;
 }
 
 .cards-wrapper {

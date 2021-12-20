@@ -5,14 +5,14 @@ html, body {
 
 #root {
 /* display: flex; */
-/* flex-direction: row; might need reverse? */
+/* flex-direction: row;  */
 /* flex-wrap: wrap; */
 /* justify-content: center; */
 /* align-content: stretch; */
 /* margin: 0; */
 height: 100%;
 background-color: #D8F3DC;
-/* background-size: auto 100%; */
+background-size: auto 100%;
 }
 
 .App {

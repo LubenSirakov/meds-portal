@@ -44,7 +44,7 @@ function Navigation() {
                 <li>Welcome {user.email}</li>
                 <li><Link to="/create">Create</Link></li>
                 <li><Link to="/my-profile">My Profile</Link></li>
-                <button onClick={onLogoutClick} >Logout</button>
+                <li onClick={onLogoutClick} >Logout</li>
             </>
         );
     };
@@ -56,7 +56,7 @@ function Navigation() {
 
                     <div className="logo">
 
-                        <Link to="/"><i className="fas fa-chess-knight"></i>Meds Portal</Link>
+                        <Link to="/">Meds Portal</Link>
                     </div>
 
 
