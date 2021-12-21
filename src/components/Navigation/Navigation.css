@@ -8,14 +8,14 @@
 
   }
   
-  body {
-    font-family: Lato, Helvetica, Arial, sans-serif;
+  /* body {
+    font-family: 'Pacifico', cursive;
     background: #eee;
     text-decoration: none;
-  }
+  } */
   
   a {
-    color: inherit;
+    color: white;
     font-family: inherit;
     font-size: inherit;
     text-decoration: none;
@@ -63,15 +63,71 @@
     font-size: 1.5em;
     font-family: 'Pacifico', cursive;
     height: 60px;
+    color: white;
     letter-spacing: 1px;
     text-decoration: none;
-    color: white;
   } @media(max-width: 768px) {
       .logo {
         margin-left: 5px;
       }
     }
   
+    .logout-button {
+    background-color: #1B4332;
+    display: inline-block;
+    font-size: 0.7em;
+    height: 50px;
+    letter-spacing: 1px;
+    color: #D8F3DC;
+    margin: 0 20px;
+    padding: 0 4px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    }
+
+    .logout-button:hover {
+      /* border-bottom: 1px solid rgb(28, 121, 184); */
+      color: #52B788;
+      transition: all 1s ease;
+      -webkit-transition: all 1s ease;
+    }
+    
+    /* Animated Bottom Line */
+    .logout-button:before, #navbar li a:after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 1px;
+      bottom: -1px;
+      background: #52B788;
+    }
+    
+    .logout-button:before {
+      left: 0;
+      transition: 0.5s;
+    }
+    
+    .logout-button:after {
+      background: #52B788;
+      right: 0;
+      /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
+    }
+    
+    .logout-button:hover:before {
+      background: #52B788;
+      width: 100%;
+      transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
+    }
+    
+    .logout-button:hover:after {
+      background: transparent;
+      width: 100%;
+      /* transition: 0s; */
+    }
+
   #navbar ul {
     display: inline-block;
     float: right;

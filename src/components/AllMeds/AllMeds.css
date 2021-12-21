@@ -1,17 +1,19 @@
-.latest-wrapper {
+.all-meds-wrapper {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     background-color: #D8F3DC;
+    /* margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%; */
+    align-items: center;
     margin: auto;
-    margin-top: 10rem;
     padding: 1rem;
     background: #B7E4C7;
     box-shadow: 0 0 5px 0 #bbb;
     border-radius: 2%;
-
 }
 
 .cards-wrapper {

@@ -11,10 +11,13 @@ import './MedDetails.css';
 
 function MedDetails() {
     const navigate = useNavigate();
-    const [med, setMed] = useState([]);
     const [user, setUser] = useState({});
+    const [med, setMed] = useState([]);
+    const [userMeds, setUserMeds] = useState([]);
     const { medId } = useParams();
 
+
+    //AUTH
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -22,6 +25,7 @@ function MedDetails() {
         return unsubscribe;
     }, []);
 
+    //GET CURRENT MED
     useEffect(() => {
         medsService.getOne(medId)
             .then(res => {
@@ -29,6 +33,26 @@ function MedDetails() {
             })
     }, [medId])
 
+    const addMedHandler = async () => {
+        let userId = user.uid;
+
+        const medToAdd = {
+            userId,
+            userMeds: [],
+            medId
+        }
+
+        await medsService.addMeddToCollection(medToAdd);
+        // navigate('/');
+    };
+
+    const AddButton = () => {
+        return (
+
+            <button className="button-details" onClick={() => addMedHandler()}>Add to my meds</button>
+
+        )
+    }
 
     const UserButtons = () => {
         return (
@@ -38,8 +62,9 @@ function MedDetails() {
                         <button className="button-details" ><Link to={`/edit/${med.medId}`}>Edit</Link></button>
                         <button className="button-details" onClick={() => deleteHandler(med.medId)}><Link to="/">Delete</Link></button>
                     </>)
-                    : <button className="button-details">Add to my meds</button>
+                    : ''
                 }
+                <AddButton />
             </div>
         );
     }

@@ -25,7 +25,7 @@ function MyProfile() {
             })
 
     }, [])
-    
+
     let userAddedMeds = [];
 
     meds.filter(med => {
@@ -38,10 +38,9 @@ function MyProfile() {
         <>
             <div className="profile-wrapper">
                 <div className="profile">
-                    <img src="https://media-exp1.licdn.com/dms/image/C4E03AQHevXrIEfUhvA/profile-displayphoto-shrink_800_800/0/1636621187597?e=1643846400&v=beta&t=c0O5dv1xF4EdFt7FZLuvSgdlM10z9HMSx6xDnnTz2kA" className="thumbnail" />
+                    <img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" className="thumbnail" />
                     <div className="check"><i className="fas fa-check"></i></div>
                     <h3 className="name">{user.email}</h3>
-                    <h2 className="name">Meber since: {user.email}</h2>
                     <div className="btn-wrapper">
                         {/* <button type="button" className="btn"><Link to={`/meds/${user.uid}`}>Meds added by me</Link></button> */}
                         {/* <button type="button" className="btn">Edit Profile</button> */}
@@ -50,10 +49,17 @@ function MyProfile() {
                 </div>
             </div>
             <div className="latest-wrapper">
-                <h3 id="header-title">Meds added by {user.email}:</h3>
-                <div className="cards-wrapper">
-                    {userAddedMeds.map(x => <MedCard key={x.medId} med={x} />)}
-                </div>
+                {userAddedMeds
+                    ? (
+                        <>
+                            <h3 id="header-title">Meds added by {user.email}:</h3>
+                            <div className="cards-wrapper">
+                                {userAddedMeds.map(x => <MedCard key={x.medId} med={x} />)}
+                            </div>
+                        </>
+                    )
+                    : <h3 id="header-title">You have no meds added.</h3>}
+
             </div>
         </>
     );

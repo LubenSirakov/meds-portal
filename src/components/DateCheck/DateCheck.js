@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 // import dateCalculator from '../../dateCalculator/dateCalculator.js';
 
 function DateCheck() {
-    const [prescDate, setPrescDate] = useState(['1.1.2020']);
-    let newPrescDate = 'example';
-    
-    
+    const [prescDate, setPrescDate] = useState('');
+    let newPrescDate = '';
+
+
     const checkDate = (e) => {
         e.preventDefault();
 
@@ -31,32 +31,32 @@ function DateCheck() {
         }
 
         newPrescDate = addDate(startDate, daysToAdd);
-        
+
     }
-    
+
     useEffect(() => {
         setPrescDate(newPrescDate);
-        console.log(newPrescDate);
-    },[]);
+    }, [newPrescDate]);
+
 
     return (
-        <form className="date-check-wrapper" onSubmit={checkDate}>
+        <form className="date-check-wrapper" onSubmit={() => checkDate()}>
             <h2>Check when to get your next perscription</h2>
 
             <div className="mb-3">
-                <label for="input-date" className="form-label">Input date</label>
+                <label htmlFor="input-date" className="form-label">Input date</label>
                 <input id="party" type="datetime-local" name="start-date" />
 
             </div>
 
             <div className="mb-3">
-                <label for="input-days" className="form-label">Days to add</label>
+                <label htmlFor="input-days" className="form-label">Days to add</label>
                 <input type="number" className="form-control" name="days-to-add" id="input-days" />
             </div>
 
             <div className="mb-3">
                 <label className="form-label">Your next perscription is on:</label>
-                <input type="text" className="form-control" name="days-to-add" defaultValue={newPrescDate}  />
+                <h4>{prescDate}</h4>
             </div>
 
             <input className="button submit" type="submit" value="Check date" />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 import './Register.css';
@@ -9,6 +9,15 @@ import { auth } from '../../firebase.js';
 import { register } from '../../services/authService.js';
 
 const Register = () => {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return unsubscribe;
+    }, []);
+
     const navigate = useNavigate();
 
     const [input, setInput] = useState({

@@ -2,27 +2,25 @@ import { useState, useEffect } from 'react';
 
 import MedCard from '../MedCard/MedCard.js';
 import { getAll } from '../../services/medsService.js';
-import './LatestMeds.css';
+import './AllMeds.css';
 
 
-function LatestMeds() {
+function AllMeds() {
   const [meds, setMeds] = useState([]);
 
   useEffect(() => {
     getAll()
       .then(res => {
-        let newMed = res.slice(-3);
-        console.log(newMed);
-        setMeds(newMed);
+        setMeds(res);
       })
 
   }, [])
 
   return (
-    <div className="latest-wrapper">
+    <div className="all-meds-wrapper">
 
 
-      <h3 id="header-title">Latest medicines added to our list...</h3>
+      <h3 id="header-title">That's all folks!</h3>
       <div className="cards-wrapper">
         {meds.map(x => <MedCard key={x.medId} med={x} />)}
       </div>
@@ -32,4 +30,4 @@ function LatestMeds() {
   );
 }
 
-export default LatestMeds;
+export default AllMeds;

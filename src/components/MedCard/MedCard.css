@@ -46,7 +46,7 @@
     background: #74C69D;
     width: 24em;
     border-radius: 0.3em;
-    min-height: 500px;
+    min-height: 300px;
     max-width: 300px;
     margin: 1em;
     overflow: hidden;
@@ -61,7 +61,9 @@
   
   .card img {
     width: 100%;
-    object-fit: cover;
+    max-height: 200px;
+    scale: 0.5;
+    object-fit: scale-down;
   }
   
   .card h2 {

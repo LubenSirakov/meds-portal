@@ -47,7 +47,8 @@ function Create() {
             count: input.count,
             imgUrl: input.imgUrl,
             owner: user.uid,
-            medId: uniqid()
+            medId: uniqid(),
+            lists: [],
         }
 
         create(newMed);
