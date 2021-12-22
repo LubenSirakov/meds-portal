@@ -97,7 +97,7 @@ export const addMeddToCollection = async ({ userId, medId, medsList, usersList }
       let userData = snapshotUser.val();
 
       medsList = userData.medsList;
-      console.log(userData);
+
       update(ref(db, `userData/${userId}`), {
         medsList: [...medsList, medId]
       })

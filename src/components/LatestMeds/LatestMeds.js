@@ -12,7 +12,7 @@ function LatestMeds() {
     getAll()
       .then(res => {
         let newMed = res.slice(-3);
-        console.log(newMed);
+
         setMeds(newMed);
       })
 

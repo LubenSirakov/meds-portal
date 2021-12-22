@@ -43,7 +43,9 @@ function MyProfile() {
                     <h3 className="name">{user.email}</h3>
                     <div className="btn-wrapper">
                         {/* <button type="button" className="btn"><Link to={`/meds/${user.uid}`}>Meds added by me</Link></button> */}
-                        {/* <button type="button" className="btn">Edit Profile</button> */}
+                        <button type="button" className="btn">Meds added by me</button>
+                        <button type="button" className="btn">My meds</button>
+                    
                         <button type="button" className="btn"><Link to='/my-meds'>My Meds</Link></button>
                     </div>
                 </div>

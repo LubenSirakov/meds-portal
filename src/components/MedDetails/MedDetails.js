@@ -14,8 +14,8 @@ function MedDetails() {
     const [user, setUser] = useState({});
     const [med, setMed] = useState([]);
     const [userMeds, setUserMeds] = useState([]);
+    // const [disable, setDisable] = useState(true);
     const { medId } = useParams();
-
 
     //AUTH
     useEffect(() => {
@@ -33,25 +33,17 @@ function MedDetails() {
             })
     }, [medId])
 
-    let userId = user.uid;
+    let userId = user?.uid;
 
     useEffect(() => {
 
         medsService.getUsersMeds(userId)
             .then(res => {
                 setUserMeds(res);
-                console.log(res);
             })
     }, [userId])
 
-    const medIncludes = () => {
-        if (userMeds.includes(medId)) {
-            return (<h4>This med is already in your collection</h4>)
-        } else {
-            return (<button className="button-details" onClick={() => addMedHandler()}>Add to my meds</button>)
-        }
-    }
-
+    console.log(userMeds);
     const addMedHandler = async () => {
         let userId = user.uid;
 
@@ -67,28 +59,19 @@ function MedDetails() {
         navigate('/');
     };
 
-    const AddButton = () => {
-        return (
-
-            <button className="button-details" onClick={() => addMedHandler()}>Add to my meds</button>
-
-        )
-    }
-
     const UserButtons = () => {
         return (
             <div className="buttons-container">
-                {user?.uid === med.owner
+                {user?.uid && (user.uid == med.owner
                     ? (<>
                         <button className="button-details" ><Link to={`/edit/${med.medId}`}>Edit</Link></button>
                         <button className="button-details" onClick={() => deleteHandler(med.medId)}><Link to="/">Delete</Link></button>
                     </>)
                     : ''
-                }
-                {medIncludes
-                    ? <AddButton />
-                    : <h4>This med is already in your collection</h4>
-                }
+                )}
+                {userMeds?.includes(medId)
+                    ? <h4>This med is already in your collection</h4>
+                    : <button className="button-details" onClick={() => addMedHandler()}>Add to my meds</button>}
 
             </div>
         );
