@@ -84,63 +84,47 @@ export const deleteMed = (medId) => {
   }
 }
 
-//ADD USER INFO
-// export const createUser = ({ email, description, profilePic, age, userMeds }) => {
-//   try {
-//     set(ref(db, 'userData/'), {
-//       email,
-//       description,
-//       profilePic,
-//       age,
-//       userMeds
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 //ADD MED TO USER'S COLLECTION
-export const addMeddToCollection = async ({ userId, userMeds, medId }) => {
-  let userCollection = [];
-  let lists = [];
+export const addMeddToCollection = async ({ userId, medId, medsList, usersList }) => {
 
   try {
     //get user list of meds
-    let snapshotUser = await get(child(dbRef, `userData/${userId}/${userMeds}`));
-    let snapshotMed = await get(child(dbRef, `meds/${medId}`));
+    let snapshotUser = await get(child(dbRef, `userData/${userId}`));
+    let snapshotMed = await get(child(dbRef, `userData/${medId}`))
 
     if (snapshotUser.exists()) {
 
       let userData = snapshotUser.val();
-      let medData = snapshotMed.val();
-      userCollection = userData.userMeds;
-      lists = medData.lists;
 
-      console.log(lists);
-
-      console.log(userCollection);
-
-      update(ref(db, 'userData/' + userId), {
-        userId,
-        userMeds: [...userCollection, medId],
-      })
-
-      update(ref(dbRef, `meds/${medId}` + lists), {
-        lists: [...lists, userId]
+      medsList = userData.medsList;
+      console.log(userData);
+      update(ref(db, `userData/${userId}`), {
+        medsList: [...medsList, medId]
       })
 
 
 
     } else {
 
-      set(ref(db, 'userData/' + userId), {
-        userId,
-        userMeds: [...userCollection, medId],
+      set(ref(db, `userData/${userId}`), {
+        medsList: [...medsList, medId]
       })
 
+    }
 
-      set(ref(dbRef, `meds/${medId}` + lists), {
-        lists: [...lists, userId]
+    if (snapshotMed.exists()) {
+
+      let medData = snapshotMed.val();
+      usersList = medData.usersList;
+
+      update(ref(db, `userData/${medId}`), {
+        usersList: [...usersList, userId]
+      })
+
+    } else {
+
+      set(ref(db, `userData/${medId}`), {
+        usersList: [...usersList, userId]
       })
 
     }
@@ -152,14 +136,17 @@ export const addMeddToCollection = async ({ userId, userMeds, medId }) => {
 //GET USER'S MEDS
 export const getUsersMeds = async (userId) => {
   try {
-    let snapshot = await get(child(dbRef, `userData/${userId}/userMeds`))
+    let snapshot = await get(child(dbRef, `userData/${userId}/medsList`))
+
     if (snapshot.exists()) {
+
       let res = snapshot.val();
-      // console.log(userId);
-      // console.log(res);
+
       return res;
+
     }
   } catch (error) {
+
     console.log(error);
   }
 }

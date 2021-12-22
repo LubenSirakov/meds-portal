@@ -2,10 +2,20 @@ MyProfile {
     padding: 2rem;
 }
 
+.my-profile-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    background-color:#D8F3DC;
+}
+
 .profile-wrapper {
     max-width: 400px;
-    margin: auto;
-    margin-top: 10rem;
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
     padding: 1rem;
     background: #B7E4C7;
     box-shadow: 0 0 5px 0 #bbb;
@@ -20,6 +30,22 @@ MyProfile {
 	border-radius: 10px;
 	padding: 20px 20px 20px 20px;
 	box-shadow: 0 8px 40px rgba(#000000, .2);
+}
+
+.user-meds-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #D8F3DC;
+    align-items: baseline ;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 1rem;
+    background: #B7E4C7;
+    box-shadow: 0 0 5px 0 #bbb;
+    border-radius: 2%;
 }
 
 .thumbnail {

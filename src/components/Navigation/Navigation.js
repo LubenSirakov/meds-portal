@@ -58,7 +58,7 @@ function Navigation() {
 
                     <div className="logo">
 
-                        <Link to="/">Meds Portal</Link>
+                        <Link to="/" className="logo-tag">Meds Portal</Link>
                     </div>
 
 

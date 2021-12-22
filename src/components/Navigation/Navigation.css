@@ -207,6 +207,15 @@
     /* transition: 0s; */
   }
   
+  .logo-tag {
+    color: #dbe6dd;
+    text-decoration: none;
+    font-size: 30px;
+  }
+
+  .logo-tag:hover {
+    color: #52B788;
+  }
   
   
   /*======================================================

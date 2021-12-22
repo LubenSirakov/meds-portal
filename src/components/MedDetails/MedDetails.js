@@ -33,17 +33,38 @@ function MedDetails() {
             })
     }, [medId])
 
+    let userId = user.uid;
+
+    useEffect(() => {
+
+        medsService.getUsersMeds(userId)
+            .then(res => {
+                setUserMeds(res);
+                console.log(res);
+            })
+    }, [userId])
+
+    const medIncludes = () => {
+        if (userMeds.includes(medId)) {
+            return (<h4>This med is already in your collection</h4>)
+        } else {
+            return (<button className="button-details" onClick={() => addMedHandler()}>Add to my meds</button>)
+        }
+    }
+
     const addMedHandler = async () => {
         let userId = user.uid;
 
         const medToAdd = {
             userId,
-            userMeds: [],
-            medId
+            medId,
+            medsList: [],
+            usersList: []
         }
 
-        await medsService.addMeddToCollection(medToAdd);
-        // navigate('/');
+        let res = await medsService.addMeddToCollection(medToAdd);
+        console.log(res);
+        navigate('/');
     };
 
     const AddButton = () => {
@@ -64,7 +85,11 @@ function MedDetails() {
                     </>)
                     : ''
                 }
-                <AddButton />
+                {medIncludes
+                    ? <AddButton />
+                    : <h4>This med is already in your collection</h4>
+                }
+
             </div>
         );
     }

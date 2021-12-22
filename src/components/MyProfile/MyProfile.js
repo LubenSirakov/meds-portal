@@ -35,7 +35,7 @@ function MyProfile() {
     });
 
     return (
-        <>
+        <div className="my-profile-wrapper">
             <div className="profile-wrapper">
                 <div className="profile">
                     <img src="https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331257_960_720.png" className="thumbnail" />
@@ -48,7 +48,7 @@ function MyProfile() {
                     </div>
                 </div>
             </div>
-            <div className="latest-wrapper">
+            <div className="user-meds-wrapper">
                 {userAddedMeds
                     ? (
                         <>
@@ -61,7 +61,7 @@ function MyProfile() {
                     : <h3 id="header-title">You have no meds added.</h3>}
 
             </div>
-        </>
+        </div>
     );
 }
 

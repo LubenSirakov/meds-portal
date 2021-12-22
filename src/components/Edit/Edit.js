@@ -55,7 +55,8 @@ function Edit() {
             count: input.count,
             imgUrl: input.imgUrl,
             owner: user.uid,
-            medId: medId
+            medId: medId,
+            lists: []
         }
         console.log(editedMed);
         medsService.edit(editedMed);
