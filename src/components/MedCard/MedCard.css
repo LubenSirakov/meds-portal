@@ -43,6 +43,7 @@
   } */
   
   .card {
+    
     background: #74C69D;
     width: 24em;
     border-radius: 0.3em;
@@ -93,12 +94,12 @@
     padding: 1.2em;
   }
 
-  .button {
+  .button-learn-more {
     background: #74C69D;
     padding:5px 25px;
     margin-bottom: 1px;
     border:none;
-    font-size:22px;
+    font-size:25px;
     border-radius:6px;
     cursor:pointer;
     color: #1B4332;

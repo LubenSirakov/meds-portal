@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebase';
 
 import MedCard from '../MedCard/MedCard';
-import * as medsService from '../../services/medsService.js';
-import './MedsAddedByUser.css';
 
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase';
+import * as medsService from '../../services/medsService.js';
+
+import './MedsAddedByUser.css';
 
 function MedAddedByUser() {
     const [meds, setMeds] = useState([]);
@@ -21,7 +22,7 @@ function MedAddedByUser() {
     useEffect(() => {
         medsService.getAll()
             .then(res => {
-                console.log(res);
+
                 setMeds(res);
             })
 

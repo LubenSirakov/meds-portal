@@ -1,0 +1,23 @@
+.my-meds-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #D8F3DC;
+    margin-bottom: 10%;
+}
+
+.date-check-wrapper {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 1rem;
+    background: #B7E4C7;
+    box-shadow: 0 0 5px 0 #bbb;
+    border-radius: 2%;
+}
+
+.cards-wrapper {
+    /* margin-bottom: 10%; */
+}

@@ -1,7 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase.js';
-import { useEffect } from 'react/cjs/react.development';
 
 export const AuthContext = createContext();
 
@@ -18,9 +17,9 @@ export const AuthProvider = ({
         });
         return unsubscribe;
     }, [])
-    console.log(user?.email);
+
     return (
-        <AuthContext.Provider value={user}>
+        <AuthContext.Provider value={{user}}>
             {!loading && children}
         </AuthContext.Provider>
     )

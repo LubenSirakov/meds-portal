@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 
 import MedCard from '../MedCard/MedCard.js';
 import { getAll } from '../../services/medsService.js';
-import './LatestMeds.css';
 
+import './LatestMeds.css';
 
 function LatestMeds() {
   const [meds, setMeds] = useState([]);

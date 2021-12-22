@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-
 import * as medsService from '../../services/medsService';
 
 import './MedDetails.css';
@@ -14,7 +13,6 @@ function MedDetails() {
     const [user, setUser] = useState({});
     const [med, setMed] = useState([]);
     const [userMeds, setUserMeds] = useState([]);
-    // const [disable, setDisable] = useState(true);
     const { medId } = useParams();
 
     //AUTH
@@ -43,7 +41,6 @@ function MedDetails() {
             })
     }, [userId])
 
-    console.log(userMeds);
     const addMedHandler = async () => {
         let userId = user.uid;
 
@@ -54,15 +51,15 @@ function MedDetails() {
             usersList: []
         }
 
-        let res = await medsService.addMeddToCollection(medToAdd);
-        console.log(res);
+        await medsService.addMeddToCollection(medToAdd);
+
         navigate('/');
     };
 
     const UserButtons = () => {
         return (
             <div className="buttons-container">
-                {user?.uid && (user.uid == med.owner
+                {user?.uid && (user.uid === med.owner
                     ? (<>
                         <button className="button-details" ><Link to={`/edit/${med.medId}`}>Edit</Link></button>
                         <button className="button-details" onClick={() => deleteHandler(med.medId)}><Link to="/">Delete</Link></button>
@@ -100,7 +97,7 @@ function MedDetails() {
     return (
         <div className='details-card'>
             <img src={med.imgUrl} className="card-img-details" alt={med.name} />
-            <div className='container'>
+            <div className='text-container'>
                 <h3 className='card-name'>{med.name}</h3>
                 <h5 className='card-tablets'>Count of tablets: {med.count}</h5>
                 <p className='card-description'>{med.description}</p>

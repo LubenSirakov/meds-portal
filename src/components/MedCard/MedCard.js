@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { auth } from '../../firebase';
-import { onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
-
 import { Link } from 'react-router-dom';
+
+import { auth } from '../../firebase';
+import { onAuthStateChanged} from 'firebase/auth';
 
 import './MedCard.css';
 
@@ -23,7 +23,7 @@ function MedCard({ med }) {
                 <div className="card-body">
                     <h2>{med.name}</h2>
                     <p>Count of tablets: {med.count}</p>
-                    <button className="button"> <Link to={`/meds/${med.medId}`} className="btn btn-sm animated-button thar-four">Learn more</Link> </button>
+                    <button className="button-learn-more"> <Link to={`/meds/${med.medId}`} className="btn btn-sm animated-button thar-four">Learn more</Link> </button>
                 </div>
             </div>
     );

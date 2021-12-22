@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Love+Light&family=Pacifico&display=swap');
+
 .all-meds-wrapper {
     display: flex;
     flex-direction: column;
@@ -29,7 +31,26 @@
     flex-shrink: 1;
 }
 
+.additional-message {
+    margin-bottom: 5%;
+    font-size: 30px;
+    color: #1B4332;
+
+}
+
+.additional-message a {
+    text-decoration: none;
+    color: #1B4332;
+}
+
+.additional-message a:hover {
+    color: rgb(255, 255, 255);
+    /* font-size: 30px; */
+}
+
 #header-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 60px;
     margin-top: 10%;
     margin-left: 20%;
     margin-right: 20%;

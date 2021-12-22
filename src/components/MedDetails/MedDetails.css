@@ -3,9 +3,23 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    align-items: center;
     margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
+    padding: 1rem;
+    background: #B7E4C7;
+    box-shadow: 0 0 5px 0 #bbb;
+    border-radius: 2%;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-left: 5%;
+    color: #1B4332;
 }
 
 .card-img-details{
@@ -22,13 +36,16 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding-left: 20px;
+    justify-content: space-between;
+    align-items: stretch;
+    /* padding-left: 20px; */
+    
 }
 
 .button-details {
     background: #74C69D;
     padding:5px 25px;
+    margin-top: 5px;
     margin-right: 10px;
     margin-bottom: 1px;
     border:none;
@@ -41,3 +58,17 @@
     box-shadow:1px 2px 3px rgba(0,0,0,0.3);   
 }
 
+.button-details:hover {
+    color: #dbe6dd;
+    transform: scale(1.03);
+    box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+}
+
+.button-details a {
+    text-decoration: none;
+    color: #1B4332;
+}
+.button-details a:hover {
+    text-decoration: none;
+    color: #dbe6dd;
+}

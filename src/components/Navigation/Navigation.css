@@ -216,6 +216,12 @@
   .logo-tag:hover {
     color: #52B788;
   }
+
+  #drug-icon {
+    width: 35px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
   
   
   /*======================================================

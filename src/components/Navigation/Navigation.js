@@ -1,11 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
-import './Navigation.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { auth } from '../../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { logout } from '../../services/authService.js';
+
+import './Navigation.css';
 
 function Navigation() {
 
@@ -57,7 +56,7 @@ function Navigation() {
                 <div className="nav-wrapper">
 
                     <div className="logo">
-
+                        <img id='drug-icon' src='https://cdn-icons.flaticon.com/png/512/2841/premium/2841587.png?token=exp=1640204300~hmac=6023c3315ca9bf08e2a4ac9b992b2cb4'/>
                         <Link to="/" className="logo-tag">Meds Portal</Link>
                     </div>
 

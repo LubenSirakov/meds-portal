@@ -24,3 +24,8 @@ background-color: #D8F3DC;
     box-shadow: 0 0 5px 0 #bbb;
     border-radius: 2%;
 }
+
+#middle-drugs {
+    margin-top: 5%;
+    width: 80px;
+}

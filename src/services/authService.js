@@ -1,28 +1,28 @@
-import { useState } from 'react';
 import { auth } from '../firebase';
-import { setPersistence, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, browserLocalPersistence, browserSessionPersistence } from 'firebase/auth';
-import * as medsService from './medsService';
+import { setPersistence, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, browserSessionPersistence } from 'firebase/auth';
 
 setPersistence(auth, browserSessionPersistence)
 
 //REGISTER
 export const register = async (auth, email, password) => {
     try {
-        const user = await createUserWithEmailAndPassword(auth, email, password);
-        // medsService.createUser(auth, email)
-        return user;
+
+        await createUserWithEmailAndPassword(auth, email, password);
+
     } catch (error) {
-        console.log(error.message);
+        
+        throw new Error(error.message);
     }
 };
 
 //LOGIN
 export const login = async (auth, email, password) => {
     try {
-        const user = await signInWithEmailAndPassword(auth, email, password);
-        return user;
+
+        await signInWithEmailAndPassword(auth, email, password);
+
     } catch (error) {
-        console.log(error.message);
+        throw new Error(error.message)
     }
 };
 
@@ -32,6 +32,6 @@ export const logout = async (auth) => {
         await signOut(auth);
 
     } catch (error) {
-        console.log(error);
+        throw new Error(error.message);
     }
 };
