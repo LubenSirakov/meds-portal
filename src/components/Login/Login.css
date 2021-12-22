@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Love+Light&family=Pacifico&display=swap');
 .login {
     max-width: 400px;
     margin: auto;
@@ -17,7 +18,7 @@ h2 {
     line-height: 1.4;
     font-size: 1.9em;
     font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Pacifico', cursive;
     transition: all ease-in 100ms;
 }
 
@@ -62,4 +63,14 @@ input[type="password"] {
     width: 60px;
     margin-left: 200px;
 
+}
+
+a {
+    text-decoration: none;
+    color: #1B4332;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #6cc27b;
 }

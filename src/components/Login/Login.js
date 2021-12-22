@@ -69,7 +69,7 @@ function Login() {
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input onChange={handleChange} type="password" name="password" value={input.password} className="form-control" id="exampleInputPassword1" />
             </div>
-            <button onClick={onLoginClick} type="submit" className="btn btn-primary">Submit</button>
+            <button onClick={onLoginClick} type="submit" className="submit">Submit</button>
             <p>New here? <Link to="/register">Register</Link></p>
             {error && <Alert variant='danger'>{error}</Alert>}
         </form>
