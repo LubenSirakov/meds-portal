@@ -56,7 +56,7 @@ function Navigation() {
                 <div className="nav-wrapper">
 
                     <div className="logo">
-                        <img id='drug-icon' src='https://cdn-icons.flaticon.com/png/512/2841/premium/2841587.png?token=exp=1640204300~hmac=6023c3315ca9bf08e2a4ac9b992b2cb4'/>
+                        <img id='drug-icon' src='https://cdn-icons.flaticon.com/png/512/1050/premium/1050791.png?token=exp=1640247933~hmac=5f74b63ac0796958064f15b3d621a108'/>
                         <Link to="/" className="logo-tag">Meds Portal</Link>
                     </div>
 
